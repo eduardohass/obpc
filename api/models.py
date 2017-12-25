@@ -92,9 +92,9 @@ class Log(models.Model):
 class Grupo(models.Model):
     id = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=50)
-    idRegional = models.ForeignKey(Regional)
+    idRegional = models.ForeignKey(Regional, on_delete=models.CASCADE)
     membros = models.ManyToManyField(Pessoa, verbose_name="Membros")
-    idEndereco = models.ForeignKey(Endereco)
+    idEndereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
     horaInicio = models.CharField(max_length=5, verbose_name="Início")
     horaFim = models.CharField(max_length=5, verbose_name="Fim")
     lider = models.ForeignKey(Pessoa, on_delete=models.CASCADE, related_name="grupo_pesssoa_lide", verbose_name="Líder")
